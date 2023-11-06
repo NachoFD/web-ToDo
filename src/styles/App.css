@@ -48,6 +48,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    color: #548193
 }
 
 .fondo-2{
@@ -63,7 +64,7 @@
     background-image: url('https://static.vecteezy.com/system/resources/previews/025/106/195/non_2x/tranquil-scene-of-majestic-mountain-range-reflected-in-tranquil-pond-generated-by-ai-free-photo.jpg');
     width: 100%;
     height: 100%;
-    opacity: 0.2;
+    opacity: 0.3;
 }
 
 .display-todo{
@@ -97,15 +98,14 @@
     background-color: var(--color-tareas-dark);
     margin-top: 60px;
     height: 5dvb;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     display: flex;
     align-items: center;
     padding: 5px;
     padding-left: 20px;
     padding-right: 20px;
     color: var(--color-text-dark);
-    border: 1px solid rgba(0, 0, 0, 0.117);
     border-radius: 10px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 .header-tareas form{
@@ -126,8 +126,8 @@
 .contenedor-tareas{
     background-color: var(--color-tareas-dark);
     margin-top: 20px;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     min-height: 55vh;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     max-height: 55vh;
     border-radius: 10px 10px 0 0;
 }
@@ -139,7 +139,7 @@
     color: rgba(128, 128, 128, 0.5);
     gap: 10px;
     padding: 20px;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 20px 20px;
 }
 
 .footer-tareas h3{

@@ -46,10 +46,10 @@ function App() {
   }
 
   return (
-    <div className='fondo-1'>
+    <div className='fondo-1' style={{backgroundColor: tema == 'light' ? '#1f1f1f' : ''}}>
 
       <header className='fondo-2'>
-        <div className='fondo-3'></div>
+        <div className='fondo-3' style={{opacity: tema == 'light' ? '0.8' : '0.8'}}></div>
       </header>
 
       <main className='display-todo'>
@@ -64,23 +64,23 @@ function App() {
         </header>
         
         <main>
-          <header className='header-tareas'>
+          <header className='header-tareas' style={ tema == 'light' ? {backgroundColor: '#d6d6d6', color:'black'} : {}}>
             <i className="bi bi-circle"></i>
             <form onSubmit={(e) => {e.preventDefault(); crearTarea()}} method="post">
-              <input type="text" placeholder='Crear una nueva tarea' value={tarea || ''} onChange={(e) => setTarea(e.target.value)} />
+              <input style={ tema == 'light' ? {backgroundColor: '#d6d6d6', color:'black'} : {}} type="text" placeholder='Crear una nueva tarea' value={tarea || ''} onChange={(e) => setTarea(e.target.value)} />
             </form>
           </header>
-          <main className='contenedor-tareas'>
+          <main className='contenedor-tareas' style={ tema == 'light' ? {backgroundColor: '#d6d6d6'} : {}}>
             { filtrar == 'todas' ?
               <>
                 {
                   activas.map((tarea, index) => (
-                    <Tarea key={index} tarea={tarea} estado={'pendiente'} completar={() => completarTarea(tarea)} reanudar={() => reanudarTarea(tarea)}/>
+                    <Tarea key={index} tema={tema} tarea={tarea} estado={'pendiente'} completar={() => completarTarea(tarea)} reanudar={() => reanudarTarea(tarea)}/>
                   ))
                 }
                 {
                   completadas.map((tarea, index) => (
-                  <Tarea key={index} tarea={tarea} estado={'completada'} completar={() => completarTarea(tarea)} reanudar={() => reanudarTarea(tarea)}/>
+                  <Tarea key={index} tema={tema} tarea={tarea} estado={'completada'} completar={() => completarTarea(tarea)} reanudar={() => reanudarTarea(tarea)}/>
                   ))
                 }
               </>
@@ -88,26 +88,26 @@ function App() {
 
             { filtrar == 'pendientes' ?
                 activas.map((tarea, index) => (
-                  <Tarea key={index} tarea={tarea} estado={'pendiente'} completar={() => completarTarea(tarea)} reanudar={() => reanudarTarea(tarea)}/>
+                  <Tarea key={index} tema={tema} tarea={tarea} estado={'pendiente'} completar={() => completarTarea(tarea)} reanudar={() => reanudarTarea(tarea)}/>
                 ))
             : <></>}
 
             { filtrar == 'completadas' ?
               completadas.map((tarea, index) => (
-                <Tarea key={index} tarea={tarea} estado={'completada'} completar={() => completarTarea(tarea)} reanudar={() => reanudarTarea(tarea)}/>
+                <Tarea key={index} tema={tema} tarea={tarea} estado={'completada'} completar={() => completarTarea(tarea)} reanudar={() => reanudarTarea(tarea)}/>
                 ))
             : <></>}
 
           </main>
           <hr />
-          <footer className='footer-tareas'>
-            <h3 style={{marginRight:'auto'}}>{activas.length} Pendientes</h3>
+          <footer className='footer-tareas' style={ tema == 'light' ? {backgroundColor: '#d6d6d6', color:'gray'} : {}}>
+            <h3 style={{marginRight:'auto', cursor:'default'}} >{activas.length} Pendientes</h3>
             <div className='footer-tareas-filtrar'>
-              <h3 style={{ color: filtrar === 'todas' ? 'white' : '' }} onClick={() => setFiltrar('todas')}>Todas</h3>
-              <h3 style={{ color: filtrar === 'pendientes' ? 'white' : '' }} onClick={() => setFiltrar('pendientes')}>Pendientes</h3>
-              <h3 style={{ color: filtrar === 'completadas' ? 'white' : '' }} onClick={() => setFiltrar('completadas')}>Completadas</h3>
+              <h3 style={ tema == 'dark' ?  filtrar === 'todas' ? {color:'white'} : {} : filtrar === 'todas' ? { color:  'black', fontWeight:'500'} : {}} onClick={() => setFiltrar('todas')}>Todas</h3>
+              <h3 style={ tema == 'dark' ?  filtrar === 'pendientes' ? {color:'white'} : {} : filtrar === 'pendientes' ? { color:  'black', fontWeight:'500'} : {}} onClick={() => setFiltrar('pendientes')}>Pendientes</h3>
+              <h3 style={ tema == 'dark' ?  filtrar === 'completadas' ? {color:'white'} : {} : filtrar === 'completadas' ? { color:  'black', fontWeight:'500'} : {}} onClick={() => setFiltrar('completadas')}>Completadas</h3>
             </div>
-            <h3 style={{marginLeft:'auto'}} onClick={limpiarCompletadas}>Limpiar Completadas</h3>
+            <h3 style={{marginLeft:'auto'}} onClick={limpiarCompletadas} id='boton'>Limpiar Completadas</h3>
           </footer>
         </main>
 

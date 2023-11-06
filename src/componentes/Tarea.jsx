@@ -11,13 +11,15 @@ function Tarea(props) {
     const completarTarea = props.completar
     const reanudarTarea = props.reanudar
 
+    const tema = props.tema
+
     return (
         <>
-            <div className='display-tarea'>
+            <div className='display-tarea' style={ tema == 'light' ? {backgroundColor: '#d6d6d6', color:'black'} : {}}>
                 { estado === 'pendiente' ? 
                     <>
                         <i className="bi bi-circle" onClick={completarTarea}></i> 
-                        <h2>{tarea}</h2>
+                        <h2 style={{fontWeight: tema == 'light' ? '400' : ''}}>{tarea}</h2>
                     </>
                 : 
                     <>
